@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "entry_values",
+  "info": {
+    "singularName": "entry-value",
+    "pluralName": "entry-values",
+    "displayName": "entry_value"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "value": {
+      "type": "decimal"
+    },
+    "entry_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::entry-item.entry-item",
+      "mappedBy": "entry_value"
+    }
+  }
+}

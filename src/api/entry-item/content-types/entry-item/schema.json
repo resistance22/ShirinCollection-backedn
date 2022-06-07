@@ -8,14 +8,14 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "Title": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "product": {
       "type": "relation",

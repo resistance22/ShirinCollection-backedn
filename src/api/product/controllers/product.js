@@ -31,5 +31,17 @@ module.exports = createCoreController('api::product.product', ({ strapi }) => ({
 
     }
     return { id }
+  },
+  async delete(ctx) {
+    const product = await strapi.entityService.findOne("api::product.product", ctx.request.params.id, {
+      populate: ["entry_items"]
+    })
+    if (product) {
+      for (let i = 0; i < product.entry_items.length; i++) {
+        await strapi.entityService.delete("api::entry-item.entry-item", product.entry_items[i].id)
+      }
+      await strapi.entityService.delete("api::product.product", product.id)
+    }
+    return { id: ctx.request.params.id }
   }
 }));

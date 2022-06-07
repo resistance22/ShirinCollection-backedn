@@ -30,7 +30,6 @@ module.exports = createCoreController('api::product.product', ({ strapi }) => ({
       }
 
     }
-
     return { id }
   }
 }));

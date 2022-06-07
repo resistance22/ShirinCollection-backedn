@@ -10,7 +10,11 @@ module.exports = (config, { strapi }) => {
       await config.validate(ctx.request.body.data)
       await next();
     } catch (e) {
-      return ctx.badRequest(e.errors[0])
+      if (e.errors) {
+        return ctx.badRequest(e.errors[0])
+      } {
+        return ctx.badRequest("Something went wrong")
+      }
     }
   };
 };
